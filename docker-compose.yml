@@ -2,17 +2,18 @@ version : '3'
 
 services:
   mysql:
-    image: mysql:latest
-    container_name: dev_mysql
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - 3306:3306
     environment:
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: default_schema
+      MYSQL_USER: kalateam
+      MYSQL_PASSWORD: escucha*2020Activa
+      MYSQL_ROOT_PASSWORD: escucha*2020Activa
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: dev_pma
+    container_name: pma
     links:
       - mysql
     environment:
@@ -21,4 +22,6 @@ services:
       PMA_ARBITRARY: 1
     restart: always
     ports:
-      - 8183:80
+      - 3307:80
+volumes:
+  db-data: {}
