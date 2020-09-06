@@ -6,6 +6,8 @@ services:
     container_name: mysql
     ports:
       - 3306:3306
+    volumes:
+      - ./.data/db:/var/lib/mysql
     environment:
       MYSQL_USER: kalateam
       MYSQL_PASSWORD: escucha*2020Activa
@@ -23,5 +25,3 @@ services:
     restart: always
     ports:
       - 3307:80
-volumes:
-  db-data: {}
